@@ -1,0 +1,57 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE. numeric_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL; 
+
+ENTITY compteur_bcd10 IS
+	PORT (clk, en, clr, CD, L: IN std_logic;
+			E : IN INTEGER RANGE 0 TO 9;
+			co : OUT std_logic; 
+			q : OUT INTEGER RANGE 0 TO 9);
+END compteur_bcd10;
+
+ARCHITECTURE behav OF compteur_bcd10 IS
+	SIGNAL cnt : INTEGER RANGE 0 TO 9; 
+BEGIN 
+q <= cnt;
+
+PROCESS (clk, clr)
+	BEGIN
+		IF (clr = '1') THEN 
+				cnt <= 0;
+				co <= '0';
+				
+		ELSIF L = '1' THEN 
+		  cnt <= E;
+
+		ELSIF rising_edge (clk) THEN
+			IF (en = '1') THEN
+				IF ( CD = '1') THEN
+				
+					IF (cnt = 9) THEN
+						cnt <= 0 ;
+						co <= '1' ;
+					ELSE
+						cnt <= cnt + 1;
+						co <= '0';
+					END IF;
+				ELSE 
+					
+					IF (cnt = 0) THEN
+						cnt <= 9 ;
+						co <= '1' ;
+					ELSE
+						cnt <= cnt - 1;
+						co <= '0';
+					END IF;
+				
+				END IF;
+			END IF;
+			 
+			 
+		END IF;
+		
+END PROCESS;
+
+END behav;
+

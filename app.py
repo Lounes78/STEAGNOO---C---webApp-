@@ -102,13 +102,19 @@ def encode_txt():
         uploaded_image = session.get('uploaded_image')
         uploaded_text = session.get('uploaded_text')
 
+        data = request.get_json()
+        encoding_key = data.get('encoding_key')
+
         if not uploaded_image or not uploaded_text:
             return 'Aucune image ou fichier texte n\'a été téléchargé.'
 
         data_path_image = os.path.join(app.config['UPLOAD_FOLDER'], uploaded_image)
         data_path_text = os.path.join(app.config['UPLOAD_FOLDER_TXT'], uploaded_text)
 
-        result = subprocess.run(['code_prog_txt.exe', data_path_image, data_path_text], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print(data_path_image)
+        print(data_path_text)
+        print(str(encoding_key))
+        result = subprocess.run(['code_prog_txtRGBA.exe', data_path_image, data_path_text, str(encoding_key)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         if result.returncode == 0:
             decoded_txt_path = 'coded.png'
@@ -204,7 +210,7 @@ def decode_txt():
 
         data_path_image = os.path.join(app.config['UPLOAD_FOLDER_CODED'], uploaded_image)
 
-        result = subprocess.run(['decode_prog_txt.exe', data_path_image], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        result = subprocess.run(['decode_prog_txtRGBA.exe', data_path_image, str(decoding_key)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         
         if result.returncode == 0:
             decoded_txt_path = 'decoded.txt'

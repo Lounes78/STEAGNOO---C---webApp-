@@ -1,0 +1,29 @@
+euh alors is it working akken iyaq ?
+je crois que OUi :)
+Ok je mets de la data dagi ! :) 
+ERR_NGROK_8012
+Traffic was successfully tunneled to the ngrok agent, but the agent failed to establish a connection to the upstream web service at localhost:50000. The error encountered was:
+
+dial tcp [::1]:50000: connectex: No connection could be made because the target machine actively refused it.
+Get help with this error
+If you're the developer of this page
+On the machine where the ngrok agent is running, make sure a web service is running on localhost:50000. Try to cURL or open the address in a browser to see that you get the correct response.
+
+Check out the docs to get help with this error. If you're having trouble resolving it, please reach out to support@ngrok.com.
+
+If you're a visitor of this page
+Wait a few minutes and refresh the page. If that still doesn't work, please contact the admin of this page for more information.
+
+Powered by ngrok
+sdjnsdsd
+s
+d
+s
+d
+s
+d
+s
+d
+s
+d
+sd

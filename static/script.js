@@ -72,7 +72,7 @@ document.getElementById('upload-form-SecImg').addEventListener('submit', functio
 
 document.getElementById('encode-button_txt').addEventListener('click', function() {
     const encodingKey = document.getElementById('encoding-key').value;
-    const data = JSON.stringify({ 'encoding-key': encodingKey });
+    const data = JSON.stringify({ encoding_key: encodingKey });
 
     fetch('/encode_txt', {
         method: 'POST',
@@ -97,12 +97,12 @@ document.getElementById('encode-button_txt').addEventListener('click', function(
     })
     .catch(error => {
         console.error('Error:', error);
-     });
+        });
 });
 
-  
 
-  document.getElementById('encode-button_img').addEventListener('click', function() {
+
+document.getElementById('encode-button_img').addEventListener('click', function() {
     const encodingKey = document.getElementById('encoding-key').value;
     const data = JSON.stringify({ encoding_key: encodingKey });
 
