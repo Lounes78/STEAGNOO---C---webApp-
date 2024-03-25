@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEGANOO - C -</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header>
+    <h1>STEGANOO  -- C --</h1>
+  </header>
+  <main>
+    <div class="container flex-container">
+      <div class="encoder">
+        <h2 class="encoder-title">Encoder</h2>
+        <p id="response"></p>
+        <pre id="output"></pre>
+        <form id="upload-form-HostImg" enctype="multipart/form-data">
+            <div class="image-upload-hote">
+                <label for="image-input-HostImg" class="image-label">Image Hôte</label>
+                <input type="file" id="image-input-HostImg" name="image" accept="image/*" required>
+                <button type="submit">Télécharger</button>
+            </div>
+        </form>
+        <form id="upload-form-SecImg" enctype="multipart/form-data">
+            <div class="image-upload">
+                <label for="image-input-SecImg" class="image-label">Image Secrete</label>
+                <input type="file" id="image-input-SecImg" name="image" accept="image/*" required>
+                <button type="submit">Télécharger</button>
+            </div>
+        </form>
+        <form id="upload-form-text" enctype="multipart/form-data">
+            <div class="text-upload">
+              <label for="text-input" class="text-label">Fichier Texte</label>
+              <input type="file" id="text-input" name="text" accept=".txt" required>
+              <button type="submit">Télécharger</button>
+            </div>
+          </form>
+          <div class="key-input">
+            <label for="encoding-key" class="key-label">Clé d'encodage (chiffres)</label>
+            <input type="number" id="encoding-key" name="encoding-key" min="0" required>
+        </div>
+          <button id="encode-button_txt" class="encoder-button">Encoder (Texte)</button>
+          <button id="encode-button_img" class="encoder-button">Encoder (Image)</button>
+      </div>
+      <div class="decoder">
+        <h2 class="decoder-title">Decoder</h2>
+        <p id="response-decoding"></p>
+        <form id="upload-form-CodedImg" enctype="multipart/form-data">
+            <div class="image-upload">
+                <label for="image-input-CodedImg" class="image-label">Image Encodée</label>
+                <input type="file" id="image-input-CodedImg" name="image" accept="image/*" required>
+                <button type="submit">Télécharger</button>
+            </div>
+        </form>
+        <p id="response-decoding"></p>
+        <div class="dkey-input">
+            <label for="decoding-key" class="dkey-label">Clé de décodage (chiffres)</label>
+            <input type="number" id="decoding-key" name="decoding-key" min="0" required>
+        </div>
+        <button id="decode-button_img" class="decoder-button">Récupérer une Image</button>
+        <button id="decode-button_txt" class="decoder-button">Récupérer du Texte</button>
+    </div>
+    </div>
+  </main>
+  <footer>
+    Stéganographie LSB - C -
+  </footer>
+  <script src="../static/script.js"></script>
+</body>
+</html>
